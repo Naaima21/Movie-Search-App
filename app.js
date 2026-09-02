@@ -27,11 +27,19 @@ function showError(message) {
     </div>
   `;
 }
+function showLoader() {
+  document.getElementById("loader").classList.remove("hidden");
+}
+
+function hideLoader() {
+  document.getElementById("loader").classList.add("hidden");
+}
 
 // 1. Initial Setup
 
 async function init() {
   try {
+    showLoader();
     const res = await fetch(
       `${BASE_URL}/discover/movie?api_key=${API_KEY}&sort_by=popularity.desc&include_adult=false&without_genres=10749,10766&vote_count.gte=200`,
     );
@@ -58,6 +66,8 @@ async function init() {
     showError(
       "Movies are not loading! Check your internet connection and try again.",
     );
+  } finally {
+    hideLoader();
   }
 }
 
@@ -87,6 +97,7 @@ async function loadGenres() {
 
 async function filterByGenre(genreId, genreName) {
   try {
+    showLoader();
     const res = await fetch(
       `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}`,
     );
@@ -99,6 +110,8 @@ async function filterByGenre(genreId, genreName) {
   } catch (err) {
     console.error(err);
     showError("Genre's movies cannot load.");
+  } finally {
+    hideLoader();
   }
 }
 
