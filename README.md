@@ -4,6 +4,8 @@ A Netflix-style movie & TV show discovery app built with vanilla JavaScript, pow
 
 ## 🔗 Live Demo
 
+https://naaima21.github.io/Movie-Search-App/
+
 ## ✨ Features
 
 - Browse trending movies & TV shows
