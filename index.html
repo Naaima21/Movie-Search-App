@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CineScope | Premium Movie App</title>
+    <link rel="preconnect" href="https://api.themoviedb.org" />
+    <link rel="preconnect" href="https://image.tmdb.org" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar" id="main-nav">
+      <div class="logo" id="logo">
+        <i class="fa-solid fa-film"></i> CineScope
+      </div>
+      <div class="search-wrapper" id="search-container">
+        <i class="fa-solid fa-search search-icon" id="search-icon-btn"></i>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search for movies, series..."
+        />
+        <div id="search-suggestions" class="suggestions-dropdown hidden"></div>
+      </div>
+      <button class="library-btn" id="library-btn">
+        <i class="fa-solid fa-bookmark"></i> My Library
+      </button>
+    </nav>
+
+    <!-- HOME VIEW -->
+    <div id="home-view">
+      <div class="hero-collage-container">
+        <div id="collage-grid" class="collage-grid"></div>
+        <div class="hero-overlay">
+          <h1>Unlimited movies, TV shows, and more.</h1>
+          <p>Search your favorites or explore trending titles today.</p>
+        </div>
+      </div>
+      <main class="main-content">
+        <div id="genre-bar" class="genre-bar"></div>
+        <h2 class="section-title" id="grid-title">Trending Now</h2>
+        <div id="trending-grid" class="movie-grid"></div>
+      </main>
+    </div>
+
+    <!-- DETAILS VIEW -->
+    <main id="details-view" class="details-view hidden">
+      <!-- Sleek Minimal Back Button -->
+      <button class="back-btn" id="details-back-btn" title="Go Back">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <div class="background-image" id="bg-image">
+        <div class="gradient-overlay"></div>
+      </div>
+      <div class="content-container">
+        <h1 id="title" class="movie-title">Title</h1>
+        <div class="meta-info">
+          <span id="rating" class="rating-badge"></span>
+          <span id="runtime"></span>
+          <span id="year"></span>
+          <span id="type-badge" class="type-badge"></span>
+        </div>
+        <div class="info-section">
+          <p class="section-label">GENRES</p>
+          <div id="genres" class="pills-container"></div>
+        </div>
+        <div class="info-section">
+          <p class="section-label">CAST</p>
+          <div id="cast" class="pills-container"></div>
+        </div>
+        <div class="info-section">
+          <p class="section-label">DIRECTORS / CREATORS</p>
+          <div id="directors" class="pills-container"></div>
+        </div>
+        <div class="info-section">
+          <p class="section-label">SUMMARY</p>
+          <p id="summary" class="summary-text"></p>
+        </div>
+        <div class="info-section" id="providers-section">
+          <p class="section-label">WHERE TO WATCH</p>
+          <div id="providers" class="pills-container"></div>
+        </div>
+        <div class="action-buttons">
+          <button id="trailer-btn" class="action-btn pill-btn">
+            <i class="fa-solid fa-play"></i> Trailer
+          </button>
+          <button
+            id="add-library-btn"
+            class="action-btn icon-btn"
+            title="Add to Library"
+          >
+            <i class="fa-solid fa-folder-plus"></i>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- LIBRARY VIEW -->
+    <main id="library-view" class="library-view hidden">
+      <!-- Sleek Minimal Back Button -->
+      <button class="back-btn" id="library-back-btn" title="Go Back">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <h2 class="section-title">My Library</h2>
+      <div id="library-grid" class="movie-grid"></div>
+    </main>
+
+    <!-- Trailer Modal -->
+    <div id="trailer-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close-btn" id="close-modal">&times;</span>
+        <div class="video-container">
+          <iframe
+            id="trailer-iframe"
+            src=""
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
